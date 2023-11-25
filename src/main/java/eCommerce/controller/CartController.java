@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,32 +41,29 @@ public class CartController
 	}
 	
 	@RequestMapping(value="/addToCart/{productId}")
-	
-	public String addToCart(@PathVariable("productId")int productId, @RequestParam("quantity")int quantity, HttpSession session,Model m)
-	{
-		Product product = productDAO.getProduct(productId);
-		
-		String username=(String)session.getAttribute("username");
-		
-		CartItem cartItem = new CartItem();
-		cartItem.setProductId(product.getProductId());
-		cartItem.setProductName(product.getProductName());
-		cartItem.setQuantity(quantity);
-		cartItem.setPrice(product.getPrice());
-		cartItem.setPaymentStatus("NP");
-		cartItem.setUsername(username);
-		
-		cartDAO.addCartItem(cartItem);
-		
-		List<CartItem> cartItemList = cartDAO.listCartItems(username);
-		
-		m.addAttribute("cartItemList", cartItemList);
-		m.addAttribute("grandTotal", this.getGrandTotal(cartItemList));
-		m.addAttribute("pageinfo", "My Cart-");
-		
-		
-		return "Cart";
+	public String addToCart(@PathVariable("productId") int productId, @ModelAttribute("quantity") int quantity, HttpSession session, Model m) {
+	    Product product = productDAO.getProduct(productId);
+	    String username = (String) session.getAttribute("username");
+
+	    CartItem cartItem = new CartItem();
+	    cartItem.setProductId(product.getProductId());
+	    cartItem.setProductName(product.getProductName());
+	    cartItem.setQuantity(quantity);
+	    cartItem.setPrice(product.getPrice());
+	    cartItem.setPaymentStatus("NP");
+	    cartItem.setUsername(username);
+
+	    cartDAO.addCartItem(cartItem);
+
+	    List<CartItem> cartItemList = cartDAO.listCartItems(username);
+
+	    m.addAttribute("cartItemList", cartItemList);
+	    m.addAttribute("grandTotal", this.getGrandTotal(cartItemList));
+	    m.addAttribute("pageinfo", "My Cart-");
+
+	    return "Cart";
 	}
+
 	
 	@RequestMapping(value="/updateCartItem/{cartItemId}")
 	public String updateCartItem(@PathVariable("cartItemId")int cartItemId , @RequestParam("quantity")int quantity,Model m , HttpSession session)
@@ -115,5 +113,6 @@ public class CartController
 		
 		return grandTotal;
 	}
+
 
 }

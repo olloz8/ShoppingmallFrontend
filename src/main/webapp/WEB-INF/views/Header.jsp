@@ -79,7 +79,7 @@ footer {
 		<nav class="navbar navbar-inverse navbar-custom">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="index.jsp"> Seasons </a>
+					<a class="navbar-brand" href="<c:url value='/index.jsp' />"></i>Seasons</a>
 				</div>
 
 				<%--로그인 상태가 아닐 때--%>
@@ -87,14 +87,16 @@ footer {
 				<c:if test="${!sessionScope.loggedIn}">
 
 					<ul class=" nav navbar-nav">
+
 						<li><a href="<c:url value="/" />"> <i class='fas fa-home'></i>
 								HOME
 						</a></li>
+						
 						<li><a href="<c:url value='/allProducts' />"> <i class='fas fa-tags'></i>ALL</a></li>
 
-						<li><a href="<c:url value='/productDisplay/66' />"> <i class='fas fa-tags'></i> OUTER</a></li>
-    					<li><a href="<c:url value='/productDisplay/67' />"> <i class='fas fa-tags'></i> TOP</a></li>
-    					<li><a href="<c:url value='/productDisplay/68' />"> <i class='fas fa-tags'></i> BOTTOM</a></li>
+						<li><a href="<c:url value='/productDisplay/108' />"> <i class='fas fa-tags'></i> OUTER</a></li>
+    					<li><a href="<c:url value='/productDisplay/109' />"> <i class='fas fa-tags'></i> TOP</a></li>
+    					<li><a href="<c:url value='/productDisplay/110' />"> <i class='fas fa-tags'></i> BOTTOM</a></li>
 							
 						<li><a href="<c:url value="/board" />"> <i
 								class='fas fa-comment'></i> REVIEW
@@ -116,9 +118,7 @@ footer {
 					<c:if test="${sessionScope.role=='ROLE_ADMIN'}">
 
 						<ul class=" nav navbar-nav">
-							<li><a href="<c:url value="/adminhome" />"> <i
-									class='fas fa-home'></i> HOME
-							</a></li>
+
 							<li><a href="<c:url value="/product" />"> <i
 									class='fas fa-edit'></i> PRODUCT
 							</a></li>
@@ -128,13 +128,14 @@ footer {
 							</a></li>
 							<li><a href="<c:url value='/allProducts' />"> <i class='fas fa-tags'></i> ALL</a></li>
 
-						<li><a href="<c:url value='/productDisplay/66' />"> <i class='fas fa-tags'></i> OUTER</a></li>
-    					<li><a href="<c:url value='/productDisplay/67' />"> <i class='fas fa-tags'></i> TOP</a></li>
-    					<li><a href="<c:url value='/productDisplay/68' />"> <i class='fas fa-tags'></i> BOTTOM</a></li>
+						<li><a href="<c:url value='/productDisplay/108' />"> <i class='fas fa-tags'></i> OUTER</a></li>
+    					<li><a href="<c:url value='/productDisplay/109' />"> <i class='fas fa-tags'></i> TOP</a></li>
+    					<li><a href="<c:url value='/productDisplay/110' />"> <i class='fas fa-tags'></i> BOTTOM</a></li>
 							
 							<li><a href="<c:url value="/board" />"> <i
 									class='fas fa-comment'></i> REVIEW
 							</a></li>
+	
 					</c:if>
 
 					<%--로그인 상태 : 유저--%>
@@ -142,9 +143,9 @@ footer {
 						<ul class=" nav navbar-nav">
 							<li><a href="<c:url value='/allProducts' />"> <i class='fas fa-tags'></i> ALL</a></li>
 
-						<li><a href="<c:url value='/productDisplay/66' />"> <i class='fas fa-tags'></i> OUTER</a></li>
-    					<li><a href="<c:url value='/productDisplay/67' />"> <i class='fas fa-tags'></i> TOP</a></li>
-    					<li><a href="<c:url value='/productDisplay/68' />"> <i class='fas fa-tags'></i> BOTTOM</a></li>
+						<li><a href="<c:url value='/productDisplay/108' />"> <i class='fas fa-tags'></i> OUTER</a></li>
+    					<li><a href="<c:url value='/productDisplay/109' />"> <i class='fas fa-tags'></i> TOP</a></li>
+    					<li><a href="<c:url value='/productDisplay/110' />"> <i class='fas fa-tags'></i> BOTTOM</a></li>
 							
 							<li><a href="<c:url value="/board" />"> <i
                           			 class='fas fa-comment'></i> REVIEW
@@ -159,9 +160,7 @@ footer {
 							<li><a href="<c:url value="/myorders" />"> <i
 									class='fa fa-shopping-bag'></i> ORDERS
 							</a></li>
-							<li><a href="<c:url value="/userhome" />"> <i
-									class='fas fa-home'></i> MYPAGE
-							</a></li>
+
 						</ul>
 					</c:if>
 				</c:if>

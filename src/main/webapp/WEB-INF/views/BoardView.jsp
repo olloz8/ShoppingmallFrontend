@@ -123,9 +123,8 @@ td {
 					<tr>
 						<th scope="col" class="th-title">Title</th>
 						<td>${board.title}</td>
-						<th scope="col" class="th-date">Date</th>
-						<td><fmt:formatDate value="${board.date}"
-								pattern="yyyy-MM-dd" /></td>
+						<th scope="col" class="th-date"></th>
+						<td></td>
 					</tr>
 
 					<tr>
@@ -144,11 +143,17 @@ td {
 				<tr>
 					<td><a href="<c:url value='/board'/>" class="btn btn-dark">pre</a></td>
 					<td></td>
-					<td><a
+					<td>
+					            <c:if test="${sessionScope.role == 'ROLE_ADMIN' || sessionScope.username == board.customerName}">
+					<a
 						href="<c:url value='/updateBoard?boardId=${board.boardId}'/>"
-						class="btn btn-dark">edit</a> <a
+						class="btn btn-dark">edit</a>
+						</c:if>
+						<c:if test="${sessionScope.role == 'ROLE_ADMIN' || sessionScope.username == board.customerName}">
+						
+						 <a
 						href="<c:url value='/deleteBoard?boardId=${board.boardId}'/>"
-						class="btn btn-dark">delete</a></td>
+						class="btn btn-dark">delete</a></c:if></td>
 				</tr>
 			</table>
 		</div>
@@ -174,7 +179,7 @@ td {
         <div style="display: flex; align-items: start;">
 
             <!-- 댓글 리스트 -->
-            <p>${comment.customerName}(${comment.date})</p>
+            <p>${comment.customerName}</p>
             <p style="margin-left: 20px;" id="content_${comment.commentId}">${comment.content}</p>
 
             <!-- 댓글 수정 -->
@@ -208,5 +213,6 @@ function showEditForm(commentId) {
     document.getElementById('editForm_' + commentId).style.display = 'block';
 }
 </script>
+</div>
 </body>
 </html>

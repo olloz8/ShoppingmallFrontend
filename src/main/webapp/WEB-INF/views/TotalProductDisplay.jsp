@@ -61,22 +61,32 @@ td {
             <td>${product.productDesc}</td>
         </tr>
 
-        <tr>
-            <td>Quantity</td>
-            <td><select name="quantity">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-            </select></td>
-        </tr>
-        <tr>
+       <tr>
+    <td>Quantity</td>
+    <td>
+        <select name="quantity" id="quantitySelect">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </td>
+</tr>
+
+<script>
+    // 수량 선택이 변경되었을 때 이벤트 처리
+    document.getElementById("quantitySelect").addEventListener("change", function() {
+        var selectedQuantity = this.value;
+        document.getElementById("selectedQuantity").value = selectedQuantity;
+    });
+</script>
+
             <td colspan="2">
-                <form action="<c:url value="/addToCart/${product.productId}" />" method="post">
-                    <input type="hidden" name="quantity" value="1">
-                    <input type="submit" value="Add to Cart" class="btn btn-success">
-                </form>
+                 <form action="<c:url value="/addToCart/${product.productId}" />" method="post">
+        		<input type="hidden" id="selectedQuantity" name="quantity" value="1">
+        		<input type="submit" value="Add to Cart" class="btn btn-success">
+    			</form>
                 <span style="margin: 0 10px;"></span>
                 <form action="<c:url value="/addToWish/${product.productId}" />" method="post">
                     <input type="hidden" name="quantity" value="1">

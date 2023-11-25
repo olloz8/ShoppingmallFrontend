@@ -86,7 +86,7 @@ public class BoardController {
        Board board = boardDAO.getBoard(boardId);
        if (board != null) {
            model.addAttribute("board", board);
-           return "BoardWrite";
+           return "BoardUpdate";
        } else {
            return "redirect:/board";
        }
@@ -94,6 +94,8 @@ public class BoardController {
 
    // 게시글 수정 처리
    @PostMapping("/updateBoard")
+   
+   
    public String updateBoard(@ModelAttribute("board") Board board) {
        boolean isUpdated = boardDAO.updateBoard(board);
        if (isUpdated) {
