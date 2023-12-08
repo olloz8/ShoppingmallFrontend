@@ -2,7 +2,7 @@
 
 <%@include file="Header.jsp" %>
 
-<body background="https://www.noupe.com/wp-content/uploads/2009/10/hybrid-genesis.jpg">
+<body>
 
 
 <font style="font-size:30px;color:black;text-align:center">

@@ -33,7 +33,7 @@
     }
 </style>
 
-<body background="https://www.noupe.com/wp-content/uploads/2009/10/hybrid-genesis.jpg">
+<body>
 
 <div class="container">
     <div class="row main">

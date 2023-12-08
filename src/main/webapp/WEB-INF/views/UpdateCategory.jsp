@@ -4,7 +4,7 @@
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<body background="https://www.noupe.com/wp-content/uploads/2009/10/hybrid-genesis.jpg">
+<body>
  
 <form action="<c:url value="/UpdateCategory"/>" method="post">  
 <table align="center" class="table">

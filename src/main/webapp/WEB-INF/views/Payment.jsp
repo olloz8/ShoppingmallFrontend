@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html"%>
 <%@include file="Header.jsp" %>
 
-<body background="https://www.noupe.com/wp-content/uploads/2009/10/hybrid-genesis.jpg">
+<body>
 
 <div class="container">
  <form action="<c:url value="/receipt" />" method = "post"> 
@@ -14,7 +14,7 @@
       <td colspan="2"> 
         <center>
         <input type="radio" name="pmode" value="CC" checked> Credit Card
-        <input type="radio" name="pmode" value="COD"> Cash On Delivery
+
         </center>
       </td>
       

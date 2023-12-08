@@ -26,7 +26,7 @@ public class RegisterController
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setEnabled(true);
-		user.setRole("ROLE_ADMIN");
+		user.setRole("ROLE_USER");
 		userDAO.registerUser(user);
 	
 		return "Success";
